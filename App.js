@@ -11,6 +11,7 @@ import CategoryScreen from './app/screens/CategoryScreen'
 import SourcesFeed from './app/screens/components/sourceComponents/SourcesFeed'
 import HeadlineFeed from './app/screens/components/topHeadlineComponents/HeadlineFeed';
 import HeadlinesFullArticle from './app/screens/components/topHeadlineComponents/HeadlinesFullArticle';
+import NewsFeed from './app/screens/components/newsFeedComponents/NewsFeed';
 
 
 const Stack = createStackNavigator();
@@ -59,6 +60,9 @@ function App() {
             },
             TopHeadlines: {
               path: 'topheadlines'
+            },
+            NewsFeed: {
+              path: 'newsfeed'
             },
             BusinessSource: {
               path: 'categories/:subcategory',
@@ -125,6 +129,14 @@ function App() {
           component={HeadlineFeed}
           options={{
             title: "Top Headlines",
+            headerStyle: styles.headerStyles
+          }}
+        />
+        <Stack.Screen 
+          name="NewsFeed"
+          component={NewsFeed}
+          options={{
+            title: "News Feed",
             headerStyle: styles.headerStyles
           }}
         />

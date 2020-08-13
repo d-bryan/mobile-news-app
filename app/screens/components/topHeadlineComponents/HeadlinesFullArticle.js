@@ -61,7 +61,7 @@ export default function HeadlinesFullArticle(props) {
           />
          </View>
          <View style={styles.descriptionContainer}>
-          <Text style={styles.description}>{data.content}</Text>
+          <Text style={styles.description}>{(data.content === null) ? data.description : data.content}</Text>
          </View>
         </View>
       </Content>
@@ -109,25 +109,5 @@ const styles = StyleSheet.create({
     lineHeight: 22
   }
 })
-
-// Object {
-//   "navigation": Object {
-//     "addListener": [Function addListener],
-//     "canGoBack": [Function canGoBack],
-//     "dangerouslyGetParent": [Function dangerouslyGetParent],
-//     "dangerouslyGetState": [Function anonymous],
-//     "dispatch": [Function dispatch],
-//     "goBack": [Function anonymous],
-//     "isFocused": [Function isFocused],
-//     "navigate": [Function anonymous],
-//     "pop": [Function anonymous],
-//     "popToTop": [Function anonymous],
-//     "push": [Function anonymous],
-//     "removeListener": [Function removeListener],
-//     "replace": [Function anonymous],
-//     "reset": [Function anonymous],
-//     "setOptions": [Function setOptions],
-//     "setParams": [Function anonymous],
-//   },
 
 // used in App.js - Referenced in HeadlineTemplateMap.js

@@ -1,6 +1,7 @@
 import React from 'react'
 import SourcesTemplateMap from './SourcesTemplateMap'
 import Error from '../Error'
+import Loading from '../Loading'
 
 /**
  * Maps the sources data to the template map for each one of the
@@ -10,8 +11,13 @@ import Error from '../Error'
 export default function SourcesTemplate(props) {
   var source;
   var data = props.sources;
-
-  if (data.length >= 1) {
+  const errors = props.errors;
+  
+  if (errors.length) {
+    source = <Error 
+                errors={errors}
+              />
+  } else if (data.length >= 1) {
     source = data.map(item => 
       <SourcesTemplateMap 
         category={item.category}
@@ -25,7 +31,7 @@ export default function SourcesTemplate(props) {
       />
     )
   } else {
-    source = <Error />
+    source = <Loading />
   }
 
   return (

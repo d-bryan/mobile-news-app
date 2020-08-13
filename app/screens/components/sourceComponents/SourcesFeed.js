@@ -16,6 +16,10 @@ export default class SourcesFeed extends Component {
     sources: [],
     language: 'en',
     country: 'us',
+    error: {
+      code: '',
+      message: ''
+    }
   }
 
   // fetch the data from the api and set the sources in state
@@ -32,7 +36,15 @@ export default class SourcesFeed extends Component {
           sources: res.sources
         })
       })
-      .catch(err => console.error("ERROR: ", err));
+      .catch(err => {
+        console.error("ERROR: ", err);
+        this.setState({
+          error: {
+            code: err.code,
+            message: err.message
+          }
+        })
+      });
   }
 
   render() {
@@ -43,6 +55,7 @@ export default class SourcesFeed extends Component {
         }}>
           <SourcesTemplate 
             sources={this.state.sources}
+            errors={this.state.error}
             style={{
               fontFamily: 'roboto-medium'
             }}

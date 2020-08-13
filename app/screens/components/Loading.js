@@ -5,13 +5,10 @@ import {
   StyleSheet 
 } from 'react-native'
 
-export default function Error(props) {
+export default function Error() {
   return (
     <View style={styles.wrapper}>
-      <Text style={styles.text}>There was an Issue retieving the Data</Text>
-      <Text 
-        style={styles.text}
-      >{(props.message !== null || props.message !== undefined) ? props.message : "Could not load the data"}</Text>
+      <Text style={styles.text}>Loading...</Text>
     </View>
   )
 }
@@ -25,7 +22,7 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: 'roboto-medium',
     textAlign: 'center',
-    fontSize: 24,
+    fontSize: 28,
   }
 })
 

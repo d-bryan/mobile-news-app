@@ -1,13 +1,19 @@
 import React from 'react'
 import HeadlineTemplateMap from './HeadlineTemplateMap'
 import Error from '../Error'
+import Loading from '../Loading'
 
 export default function HeadlineTemplate(props) {
 
   var headline;
   var data = props.headlines
+  const errors = props.errors;
 
-  if (data.length >= 1) {
+  if (errors.length) {
+    headline = <Error 
+                errors={errors}
+                />
+  } else if (data.length) {
     headline = data.map(item => 
       <HeadlineTemplateMap 
         author={item.author}
@@ -22,9 +28,8 @@ export default function HeadlineTemplate(props) {
       />  
     )
   } else {
-    headline = <Error />
+    headline = <Loading />
   }
-
 
   return (
     <>

@@ -31,7 +31,10 @@ export default function WelcomeScreen() {
         >Top Headlines</Text>
       </View>
       <View style={[styles.button, styles.newsFeedButton]}>
-        <Text style={styles.buttonText}>News Feed</Text>
+        <Text 
+          style={styles.buttonText}
+          onPress={() => navigation.navigate('NewsFeed')}
+        >News Feed</Text>
       </View>
     </ImageBackground>
   )

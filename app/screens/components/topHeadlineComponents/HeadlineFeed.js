@@ -12,14 +12,14 @@ export default class HeadlineFeed extends Component {
   state = {
     headlines: [],
     language: 'en',
-    country: 'us'
+    country: 'us',
+    error: {
+      code: '',
+      message: ''
+    }
   }
 
-  handleQuery() {
-
-  }
-
-  componentDidMount(query, source) {
+  componentDidMount() {
     const newsapi = new NewsAPI(config.API_KEY);
     newsapi.v2.topHeadlines({
       language: this.state.language,
@@ -30,7 +30,15 @@ export default class HeadlineFeed extends Component {
         headlines: res.articles
       })
     })
-    .catch(err => console.error("ERROR: ", err))
+    .catch(err => {
+      console.error("ERROR: ", err)
+      this.setState({
+        error: {
+          code: err.code,
+          message: err.message
+        }
+      })
+    })
   }
 
   render() {
@@ -45,6 +53,7 @@ export default class HeadlineFeed extends Component {
         >
           <HeadlineTemplate 
             headlines={this.state.headlines}
+            errors={this.state.error}
           />
         </Content>
       </Container>

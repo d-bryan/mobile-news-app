@@ -182,39 +182,12 @@ export default function CategoryScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  // wrapper: {
-  //     backgroundColor: '#454443',
-  //     flex: 1,
-  //     justifyContent: "flex-end",
-  //     alignItems: "center",
-  // },
-  // headerContainer: {
-  //     // backgroundColor: '#fff',
-  //     // color: '#454443',
-  //     // shadowColor: '#000',
-  //     // shadowOffset: {width: 0, height: 2},
-  //     // shadowOpacity: 0.8,
-  //     position: 'absolute',
-  //     top: 75,
-  //     // height: 50,
-  //     // width: '75%',
-  //     alignItems: 'center',
-  // },
-  // header: {
-  //     fontSize: 32,
-  //     fontWeight: 'bold',
-  //     color: '#fff',
-  //     shadowColor: '#2AD9F0',
-  //     shadowOffset: {width: 2, height: 2},
-  //     shadowOpacity: 0.5
-  // },
   categoryItem: {
     justifyContent: 'center'
   },
   buttonContainer: {
     backgroundColor: Platform.OS === "ios" ? "#EEEEEE" : "#000",
     borderRadius: 10,
-    // marginLeft: Platform.OS === 'ios' ? 70 : 0
     marginLeft: 100
   },
   image: {
@@ -223,7 +196,6 @@ const styles = StyleSheet.create({
   categoryText: {
     fontSize: 38,
     textAlign: 'center',
-    // fontWeight: Platform.OS === 'android' ? 'bold' : 'normal',
     textShadowColor: '#000',
     textShadowOffset: Platform.OS === 'android' ? { width: 1, height: 2 } : { width: 0, height: 0 },
     textShadowRadius: Platform.OS === 'android' ? 5 : 0,
