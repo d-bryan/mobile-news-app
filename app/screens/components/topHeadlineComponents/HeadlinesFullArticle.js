@@ -41,28 +41,28 @@ export default function HeadlinesFullArticle(props) {
           marginTop: 20,
         }}
       >
-        <View style={styles.wrapper}>
-         <Text style={styles.header}>{data.title}</Text>
-         <View style={styles.dateAndAuthorContainer}>
-          <Text style={styles.author}>{data.author}</Text>
-          <Text style={styles.date}>{`${month}-${day}-${year}`}</Text>
-         </View>
-         <View>
-          <Image 
-            source={image}
-            style={{
-              height: Platform.OS === 'android' ? androidImageHeight : iosImageHeight,
-            }}
-          />
-          <Button 
-            title="Original Article"
-            color="#F04714"
-            onPress={() => Linking.openURL(data.url)}
-          />
-         </View>
-         <View style={styles.descriptionContainer}>
-          <Text style={styles.description}>{(data.content === null) ? data.description : data.content}</Text>
-         </View>
+        <View>
+          <Text style={styles.header}>{data.title}</Text>
+          <View style={styles.dateAndAuthorContainer}>
+            <Text style={styles.author}>{data.author}</Text>
+            <Text style={styles.date}>{`${month}-${day}-${year}`}</Text>
+          </View>
+          <View>
+            <Image 
+              source={image}
+              style={{
+                height: Platform.OS === 'android' ? androidImageHeight : iosImageHeight,
+              }}
+            />
+            <Button 
+              title="Original Article"
+              color="#F04714"
+              onPress={() => Linking.openURL(data.url)}
+            />
+          </View>
+          <View style={styles.descriptionContainer}>
+            <Text style={styles.description}>{(data.content === null) ? data.description : data.content}</Text>
+          </View>
         </View>
       </Content>
     </Container>
@@ -70,9 +70,6 @@ export default function HeadlinesFullArticle(props) {
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
-
-  },
   header: {
     paddingLeft: 15,
     paddingRight: 15,
